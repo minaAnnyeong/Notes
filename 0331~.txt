@@ -166,7 +166,8 @@
 		- vertor, ArrayList, LinkedList, stack, queue
 	- set	==> 순서x, 중복x ; unique한 값을 저장할 때 - 예: 계좌번호
 		- HashSet, LinkedHashSet, TreeSet, SortedSet
-	- map 	==> key-value 쌍으로 이루어짐. (>순서상관x 키 중복만x)
+	- map 	==> key-value 쌍으로 이루어짐. (>순서상관x 키 중복만x) 
+		*해싱기법이라 검색, 접근 등에대한 행동의 속도가 빠름
 		- HashMap, TreeMap, LinkedHashMap, SortedMap
 
 	#. Wrapper classes
