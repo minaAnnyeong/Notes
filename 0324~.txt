@@ -1,0 +1,243 @@
+###. 	
+
+	Flutter
+	React native
+	Window builder - swing
+	Scene builder - xml
+	Visual studio
+
+
+High-level language : 
+	- human-oriented language
+		c, java
+Low-level language :
+	- machine oriented language
+		assembly
+
+
+###. Java 
+	- JSP, Servlet
+		- Spring legacy
+		- Spring boot
+		- MSA
+
+#. 
+	컴파일러 - 번역기. 한 번 기계어로 번역해놓으면 지속됨. 코드 변경시 재컴파일 필요
+		c java c#
+	인터페이스 - 번역기 미리 번역하지 않고 그때그때 번역함.(브라우저 내) 
+		Web : HTML, css , JS
+
+	
+#. Java 컴파일 과정
+	- 코드(.java) > 컴파일 > 기계어(bytecode. 확: .class) > Just-in-time(jitter) 컴파일러(인터프리터) - OS에 맞추어서 처리 > 메모리로 fetch > 실행가능 
+
+#. Java 구조도
+	 Class {클래스명;자바이름}
+	main{
+		
+	}
+
+
+###. Java 메모리
+	1) code memory
+		- 
+	2) stack mem
+		- 
+	3) static mem
+		- 정적 저장소. 프로그램 시작~종료까지 사라지지않음
+	4) heap mem
+		- 나머지 공간의 저장소. 문자열 동적
+		- new 메소드로 만들어진 객체들은 heap에 저장됨(객체, 문자열, 배열, 리스트 등)
+
+
+
+#. args type
+
+	- Primitive type
+		- stack메모리
+		
+	- int : 정수 4B
+		- [-2^32 ~ (2^32 - 1)]	// 양수범위 0포함 2^n - 1
+	- short : 정수 2B
+		- 
+	- byte : 정수 1B
+		-	
+	- long : 정수 8B
+		- int 범위보다 큼 > ...L
+	- double : 실수 8B
+		- 실수 기본형. 배정도실수
+	- float : 실수 4B
+		- ...f 단정도실수
+	- char : 문자 2B
+		- 
+	- boolean : 1B
+		- true / false
+
+
+	- Reference type
+		- heap 메모리에 저장
+		- 참조방식으로 사용(:= 포인터)
+			- stack에 (heap메모리)주소값저장 > heap에 문자열값저장
+		- 문자열, 배열 ..
+	
+	- String : 문자열
+		-
+	
+
+##.  조건문
+	- if문
+		- if({head}) { {body} }
+		- head: 조건, body: 처리문
+	- nested 기법
+		- if 문 여러 개 중첩
+
+##. 입력
+	- scanner
+		- Scanner scan1 = new Scanner(System.in);
+		- 객체 참조변수
+	- file
+		- file input
+	- GUI setText()
+		- 그래픽모드 메서드
+
+#. 단축키 - c sh l : 단축키 리스트 열기
+	- c sh o : import빠르게
+	- c sh f : 공백맞춤
+
+##. package
+	- java.util같은 패키지 import / export(내보내기)
+
+
+##. 반복문
+	- do_while문
+		- do{ {body} } while({head});
+		- 메뉴 만들 때 사용
+
+	- for 문
+		- for(초기치; 목적치; 증가치)
+	
+	- while 문
+		-
+
+##. Flow chart
+	- 아래로 내려서 쓰는 블록도 (조건문, 반복문 등)
+##. NS chart
+	- 손코딩 박스그리는거
+
+
+###. 메소드
+- 종류:
+	- 내장 메소드
+	- 사용자 정의 메소드
+
+- 
+	- 초기 작업
+	- 반복 작업
+	- 출력 작업
+
+ex)	choki( ) {
+		
+	}
+
+
+- 형식
+	- 1형식 : 입력, 반환값 없음
+	- 2형식 : 입력o, 반환x
+	- 3형식 : 반환값 있음
+
+	#. c python - 절차형 언어
+	#. java c++ - 객체형 언어
+
+
+###. 오버로딩
+	- 메소드 오버로딩 : 메소드 중복
+		- 목: 가독성
+	#. 특
+	1) 메소드 이름이 동일
+	2) 인자의 타입, 개수 다름 // 반환타입은 영향x
+
+## . 형변환
+	- atof : a > double
+	- atol : a > long
+	- atoi : a > int
+
+	- Implicit conversion(암시적 형변환)
+		- 작 > 큰 conv
+
+	- Explict conversion(명시적 형변환)
+		- 큰 > 작 conv
+		- ([type]) 명시 
+
+
+###. 배열
+	#. 표현
+		1) int jum[] = new int [n]
+		2) int[] jum = new int [n]	<< c# 배열표현과 동일  ㅅㅅ
+
+	#. Arrays라이브러리
+		- .sort - 오름차순정렬
+		- .equals(a1,a2) - 비교
+
+	# sort
+		# Array패키지 메소드 사용 .sort
+		#. 알고리즘
+			- 버블정렬
+			- 선택정렬
+		
+
+	#. search 
+		1) 순차검색 Sequential search
+			- 평균검색 횟수: (n+1)/2
+			- 오래걸림
+		2) 이진검색 Binary search
+			- 평균: log2(n) + 1
+	
+		3) 피보나치 검색
+			-
+###. 객체 지향 언어 OOL(Object Oriented Language)
+	(객체지향프로그래밍 OOP(Object Oriented Programming))
+		- java, c++ 
+		- 객체(obj; class), 속성(attribute), 함수(method)
+		- 생성된(new 클래스()선언에 의해) 객체(인스턴스)는 heap메모리에 저장
+		- 
+
+	
+	#. <> 절차형 언어
+		- c,  python
+	
+		
+## 캡슐화 encapsulation
+- 정보은닉; 캡슐화 : 외부에서의 접근이불가
+	- 접근 권한, 접근 제한자Access modifier	// *비접근권한자
+	- public default protected private
+		- private : 선언된 클래스 내에서만 
+		- protected : 속한 패키지이자 자식클래스에서만
+		- default(접근자미지정) : 속한 패키지 내에서만
+		- public : 외부 클래스에서 접근 가능
+
+	- 접근 제한으로 객체 캡슐화
+		- 원시변수들 - private , 메소드 - public
+		- private지정인 속성들은 외부에서 setter("set~~"메소드)통하여 지정
+					- get~~메소드로 추출
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+

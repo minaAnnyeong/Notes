@@ -1,0 +1,183 @@
+0317
+
+
+ #. 리눅스 데스크탑	, 서버
+	서버==> DB서버 , web 서버, FTP(File Transfer Protocol) 서버
+
+	프로세스 > 스레드
+
+	아파치 > Nginx
+		큐
+		C10K 문제
+
+
+ #. 우분투 서버 
+	데스크톱 이미지 과정과 동일 (사용용량에 30G > 25G) (디스플레이 터치x)
+	시작 > done 쭉 누르다보면 > 스토리지 configration 메뉴에서, ubuntu_lv 용량 edit > 22.996G로 변경 후 save. (>> / 쪽 용량 수정됐는지 확인) > done 후 No > 유저: ondal2 ,서버: ubuntu2 암호: moya2
+ > SSH configration메뉴 (*SSH: Secure Shell - 원격pc에 접속시 사용되는 보안 프로토콜 ex:telnet) 에서 install OpenSSH서버에 체크 >리붓 > 시스템종료 > 로그인 		
+		>> dos모드 쉘창 나옴
+
+	*telnet/ssh 터미널 접속 프로그램
+		- 오픈소스
+		- 윈도우 <> 리눅스 간 텍스트 복붙이 가능
+		- putty , teraterm
+	## tera term 다운로드
+	teratermproject.github.io >> https://github.com/TeraTermProject/teraterm/releases/tag/v5.4.0
+	상단메뉴 다운로드 > 최신판 예:5.4.0 버전 .exe파일 다운로드
+	#. 세팅 : 우분투 서버 터미널에 ip addr > 아랫줄 "inet" 뒤의 ip주소 입력 후 로그인
+		
+	## . 글꼴: consolas 14
+
+	>> text붙여넣기 ^V x , 마오
+
+
+
+
+### winscp란
+	- 로컬과 원격 간 gui전송틀
+	- 오픈 소스
+	-sftp, ftp, scp가 모두 가능 (scp : 다른 운체 간 파일 전송 프로토콜)
+	- drag & drop 사용가능
+
+### winscp 다운로드 및 설치
+	https://winscp.net/eng/download.php << 에서 아래 초록색 보튼 클릭하여 버전 6.x를 받음
+	다운받은 winscp를 설치하기. 변경없이 나오는 것 그대로 수락.....다음 클릭 > 설치
+	- [시작페이지열기 체크해제] - 완료
+	##. 호스트id : 테라텀 서버 ip 유저id: ondal2	, pw moya2
+	>> 좌: 윈도우c드라이브 , 우: 리눅스 home 디렉토리 화면
+
+	cygwin
+	git-bash
+
+
+## 리눅스 서버에 아파치2-서버 설치
+	#. apache2서버
+		- 오픈소스, 프론트엔드 서버 역할
+
+	브라우저 -- 웹 서버 (정적)	예) html, css, javascript, 이미지 등
+
+	#. 테라텀 창에 sudo apt install apache2 -y
+		 sudo systemctl status apache2	// apache2서버 상태보기
+		 sudo systemctl is-enabled apache2	// " 활성화인지 보기
+			>> enabled 
+			ㄴ 아닐시, sudo systemctl enable apache2	// 활성화
+	#. 브라우저창에 테라텀 호스트 ip 입력 >> 아파치2 디폴트 페이지 works 나오면 정상
+			// 아파치2 서버가 현재 활성화 돼있음을 의미
+
+###. 리눅스 서버로 웹페이지 작성하기
+	테라텀 : cd var/www/html
+		ls > index.html 파일 확인.	// apache2설치 시 자동으로 생성되는 폴더 와 파일	
+					// 위 아파치2 안내페이지의 html임
+		(이클립스와 달리, 위 디렉토리에 html코드 작성해야함)
+	sudo nano {.html파일명} >> html파일생성 
+		>> 코드 작성 및 저장.
+	위 브라우저 창에 적은 호스트ip 뒤에 /{html파일명.html} 하여 열람
+	
+
+###. DB Oracle 세팅
+	Oracle이전버전 삭제 후 진행
+	버전: 18c xe윈도우용 다운
+		* 버전 시리즈 약어 ~i - internet / ~g - grill / ~c - cloud
+		XE - express edition << 학부생 및 비기너 용 무료db
+		인스톨러 건들지말고 Setup 파일실행 > D드라이브 "OracleXE"에 설치. 암호:1234
+		
+
+### 리눅스 데스크톱 , 서버 - DB, web server (아파치2)
+      윈도우 - 이클립스, 아파치, 톰캣, DB
+
+	gui java + DB (jdbc)	*jdbc : java -- db 연결
+				*pro*c : c -- db 연결
+		
+	
+### DB 종류
+	oracle - oracle, mySQL
+	ibm - db2
+	Ms - MsSQL
+
+### SQL
+	스크립트 보기
+	- 위치 : D:\OracleXE\dbhomeXE\demo\schema\human_resources
+
+	#. 실습
+		SQL plus > sys as sysdba > 어드민권한으로 접속 (pw:1234)
+
+		#. c##유저명 해제 - alter session set "_ORACLE_SCRIPT"=true; > 세션변경확D:
+		#. db예제 생성 - @	?\demo\schema\human_resources\hr_main.sql
+
+### SQL 언어
+	1) query 문 : 조회문CRUD의 R => select
+	2) 데이터 조작(작동) 언어 : data manipulation language
+		==> DML - insert, update, delete
+	3) 데이터 정의 언어 : data difination lang
+		==> DDL - create
+
+	<규칙>
+	 	- keyword는 대문자, 
+		- 절단위로 줄을 바꿈, 
+		- 문장끝에는 ;
+
+	#. casing(연결) 작명기법
+		1) pascal casing - 각 단어 대문자
+			HighPrice
+		2) camel casing - 첫단어 제외 각 단어 대문자
+			highPriceResult
+		3) snake casing - 단어 사이 언더바_	// 가장 많이 씀
+			high_price
+
+
+	#. 유형
+		varchar2(25) 가변길이 문자열 - 상대적으로 느림
+			getchar() : get character
+  		char(20) 고정길이 문자열 - 메모리낭비, 속도 빠름
+
+	
+		number(6) : 6자리까지 정수 범위 (0~999999)
+			number(6, 2) - 실수표현. 전체 6자리 중 4자리 정수 + 소숫점 2자리까지 범위	
+		DATE - dd/mm/yy 로 8자 고정
+			yy/mm/dd
+			> RR/mm/dd
+			(RR - 50~ 이면, 1900년대, ~49면 2000년대)
+
+		
+	#. Select문 문장 출력
+		> SELECT '문장' FROM 테이블;
+			> 중복제거: FROM dual;
+
+	#. SQL alias AS
+		> 숫자 또는 ' '들어갈 시 ""로 묶음
+
+	#. SQL 결합 연산자 || 
+		- 속성값끼리 결합
+		>> 예) SELECT last_name || ' ' ||first_name 성명 FROM employees;
+			* ' ' - 한칸공백. ascii 32
+			* "" - 빈 문자열 0
+
+	#. SQL 튜닝 - 
+
+	
+	#. 로그인 개발	equals() strcmp()
+	  문고관련 개발 strstr()
+	
+	윈도우 all- * A- ?
+		a*.txt 	a??.txt
+	SQL
+		all % a_
+
+
+	#. '@_' ESCAPE '@' 
+		> '_'를 한 글자로 인식
+
+	
+	###. 날짜처리
+		sysdate
+
+
+	#. dual - 가상 테이블. 더미
+		.. FROM dual
+
+	###. 커미션
+	SELECT first_name 이름, commission_pct 커미션
+	FROM employees;
+
+		- DB 함수 : 인자 규칙에 맞추기 
+		// jdbc, java문법 들어가기

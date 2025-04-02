@@ -1,0 +1,141 @@
+0314~
+
+
+### 새 그루ㅜㅂ추가
+	sudo groupadd 그룹명	// 새 그룹 생성 >> 암호입력창
+	sudo group 그룹명
+	sudo usermod -aG 그룹명 유저명
+	sudo adduser --gecos "" 유저명 	
+	>> 생성된 그룹 내 새 유저를 생성 // 기존에 useradd로 추가한 유저는 이걸로 넣을 수 없음
+	>> 유저명 암호 입력 {mama}
+
+	그룹 확인
+	groups wangja
+	>> wang그룹에 속해있음이 확인
+	
+	
+	## 유저 전환
+	su - wangja	// 유저가 온달 -> 왕자 전환
+	pwd 로 왕자 뜨나 확인
+	ls -al 로 파일 유저명 왕자 뜨나 확인
+
+	## 유저 삭제
+	sudo userdel -r 유저명
+	- root모드로 생성한 유저는, rm명령으로 삭제한다.
+	
+	
+	## 그륩에 왕자2만든 후..
+	sudo -j -u wangja2 groups
+	cat /etc/passwd
+	>> 확인
+
+	id wangja	 / id wangja2	// 유저명 아이디 확인
+
+
+	## root계정으로 돌아가기
+	exit
+	pwd 로 ondal로 돌아왔는지 확인
+	
+
+
+
+##########
+		리눅스 서버
+		db 서버
+		SQL - mySQL, MySQL, PLSQL
+	
+		웹서버 (퍼블리셔)
+	front-end html css 개발자
+	back-end	java js 개발자
+	>>> full stack 위 둘을 모두 함
+
+	브라우저 --  웹 서버(apache: 실습용 무료 서버) -- WAS(tomcat: 무료 WAS) -- DB
+	*WAS : Web application server - 데이터 계산기능
+	** apache-tomcat 설치 -> 웹 서버와 WAS동시에 구축함
+
+
+
+### 윈도우에 java관련 내용 설치
+	#. jdk 설치 (*java development kit)	// java구동에 필요한 필수 라이브러리 등 포함된 툴킷
+
+	#. java개발 툴 설치
+	c, c++, VB.net, c#.net
+	==> Visual Studio.net
+	react, js ==> vscode
+		oracle | XE
+		eclipse IntelliJ
+
+### Eclipse 설치 및 환경조성
+	이클립스 압축해제 >> 실행
+	workspace폴더 생성 
+
+	- 프로젝트 생성
+	new java project > **설치한 jdk버전과 동일하도록 변경 > 확인
+			(JRE System Library 뒤에 JavaSE(버전숫자))라고 뜨면 됨
+
+	
+	- class구조 생성
+	아래 src폴더에 마오 > new class > class이름짓고 아래 method stub~?에 첫번째 옵션(public static void main()만들거냐?)에 체크. > finish
+
+### 자바 프로그램 구조
+	[프로젝트 이름]
+		class [클래스명] {
+		    (문장들);
+		
+		}
+	* class 이름규칙 앞글자 대문자
+	* class 이름과 코드 이름 (Hello.java)이 같아야 함. 
+
+### 자바 실행
+	hello.java(영어) ===> hello.class(기계어) ===> 메모리 올림 ===> 실행가능한 상태
+		      컴파일	인터프리터
+	* interpreter : just in time compiler
+			jitter
+	** c 는 컴파일 과정만으로 실행이 가능. java코드실행이 c보다 느림
+
+	*** 엑박 : 소스코드 넘버링에 오류표기 뜸 // 이게 안뜨는 오류도 종종있음
+
+	* ctrl+space:  메서드 자동완성 기능 이용. 예) sysout치고 ctrl+space누르면 풀력메서드 자동완성
+
+
+
+
+### 자바 웹 서버 개발환경 구축하기
+	준비 : 이클립스, 아파치-톰캣
+	새 workspace생성 > Create a project... > New Dynamic Web Project > 프로젝트명 짓고 > New runtime클릭 > 서버종류: 아파치-톰캣 선택 (버전도 맞추기) '톰캣 설치 디렉토리' . 브라우즈 > 아팣치톰캣 설치한 위치의 *폴더* 선택(bin폴더 바로위에) > finish
+	// bin폴더까지 들어가 선택하면 x
+
+### 웹 만들기
+	# 서버 생성
+		아래 터미널창에서 Servers클릭 후 파란링크 클릭 > 해당서버와 버전 클릭 후 finish
+		>> 익스플로어 아래 Server디렉토리 생성된거 확인
+
+	# html 작성
+		익스플로어창의 main\webapp 에 마오 > new HTML 생성 	// Index.html
+	#. 서버 가동
+		준비: 위 [서버 생성]과정 필요
+		*오류: 포트8080이 이미 사용중(oracle에서)이면 가동이 안됨.
+			1) 사용중인곳의 8080포트 죽이기(x)
+			>> 관리자권한으로 cmd > taskkill /f /pid {8080포트의 pid값}
+				
+			** 했는데 이러면oracle이 부팅시 8080번을 다시 가져갈진 모름;
+			2) 내 서버 포트번호 변경
+			>> 아래 서버 클릭 > Html 1.1 포트번호 변경 > 서버 재부팅
+
+
+	# localtunnel
+
+	node.js 설치 > npm사용가능 > cmd에 npm install -g localtunnel > fund어쩌구 서너줄나오면 됨
+
+	# 이용하기
+	cmd에 lt --port 8002(이클립스 서버포트번호) --subdomain {주소명} --print-requests
+	>> your url : {주소}.loca.lt 를 줌
+		>> 외부가 접속가능한 웹 서버. > 터널 비번설정하는 창 나오면 맨 아래 주소에 나오는 ip 입력 >
+	
+
+
+
+
+
+
+
