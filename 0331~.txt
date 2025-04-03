@@ -162,6 +162,7 @@
 		- 배열: 고정길이 (+단일 데이터 타입) , 컬렉션: 가변길이 (+ MultiDataType)
 		
 	#. 컬렉션 자료구조
+	( - 인터페이스 ==> 클래스 )
 	- list 	==> 순서o, 중복허용
 		- vertor, ArrayList, LinkedList, stack, queue
 	- set	==> 순서x, 중복x ; unique한 값을 저장할 때 - 예: 계좌번호
@@ -177,14 +178,28 @@
 
 
 ###. 제네릭 Generic	// 잘 안씀
-	- 가변길이배열 =, 단일 데이터타입
+	- 가변길이배열 , 단일 데이터타입
+	- <Integer> << 같은단락이 제네릭에 해당
 
 
 
+###. Stack vs Queue
+	- 스택	- Stack 클래스 이용
+		- 뒤로가기, 자료역순처리, 하노이, 팩토리얼(재귀함수), 
+			+ 깊이우선탐색(DFS)
+		- 루프, 메소드없이 객체명으로 쉽게 출력이 가능(꺼내는순서x 넣은순서o)
+		- push , pop		
+		
+	- 큐
+		- Queue 클래스 사용
+		- 선입선출기능
+			+ 넓이우선탐색(BFS)
+		- 쉽게 출력.."
+		- offer , poll
 
-
-
-
+		** 
+		Queue<String> q1 = new LinkedList<String>(); // 선언
+		>> Collection > Queue > LinkedList 순 관계이기 때문에 형변환됨
 
 
 
