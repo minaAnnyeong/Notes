@@ -202,14 +202,26 @@
 		>> Collection > Queue > LinkedList 순 관계이기 때문에 형변환됨
 
 
+###. File
+	- FileReader 객체 : file 열고 읽어옴
+	- BufferedReader 객체 : 
+	
 
+	* read : 한 줄의 끝은 null, 한 글자(byte)의 끝은 -1
+	** scanner, reader같은 input메소드는 열린순서의 역순으로 .close() 해주어야 한다. (자동close)
 
+	#. Stream	종류	메소드
+		- byte Stream : input, output, stream	// 이미지	파일
+		- String Stream : reader, writer 	// 문서파일
 
+	##. File Copy
+		- 필요: 복사할 새 파일, reader(예-이미지면, inputstream)
+				^ FileInputStream, FileOutputStream객체 생성
 
+		*PrintWriter - file종류의 출력에 줄바꿈이 가능케 하는 객체 
+		#. 이미지 파일 복사 - 
 
-
-
-
+		#. 일반(텍스트)파일 복사 - 
 
 
 
