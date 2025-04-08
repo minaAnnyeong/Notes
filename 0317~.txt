@@ -96,13 +96,16 @@
 
 ### SQL
 	스크립트 보기
-	- 위치 : D:\OracleXE\dbhomeXE\demo\schema\human_resources
+	- 위치 : D:\ora\dbhomeXE\demo\schema\human_resources
 
 	#. 실습
 		SQL plus > sys as sysdba > 어드민권한으로 접속 (pw:1234)
 
-		#. c##유저명 해제 - alter session set "_ORACLE_SCRIPT"=true; > 세션변경확D:
+		#. c##유저명 해제 - alter session set "_ORACLE_SCRIPT"=true; > 세션변경확인
 		#. db예제 생성 - @	?\demo\schema\human_resources\hr_main.sql
+		> sqldeveloper들어가서 아무 새 접속 만든 후 
+		> sql창에 ALTER USER HR ACCOUNT UNLOCK IDENTIFIED BY 1234; 
+		> 다시 새 접속 생성 
 
 ### SQL 언어
 	1) query 문 : 조회문CRUD의 R => select

@@ -134,7 +134,7 @@
 ###. 예외처리
 	- try { a } catch { b }
 		a; 에러 의심 부분  b; 실행할대처방안
-	- throws ..
+	- throws { ~ } 
 
 
 ###. Socket program
